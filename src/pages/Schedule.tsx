@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ScheduleCard } from "@/components/ScheduleCard";
 import { WeekTypeToggle } from "@/components/WeekTypeToggle";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -8,6 +9,7 @@ const DAYS = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб"] as const;
 type Day = (typeof DAYS)[number];
 
 const Schedule = () => {
+  const navigate = useNavigate();
   const [isNumerator, setIsNumerator] = useState(true);
   const [selectedDay, setSelectedDay] = useState<Day>("Пн");
   const isMobile = useIsMobile();
@@ -55,7 +57,265 @@ const Schedule = () => {
         },
       ],
     },
-    // Add other days similarly...
+    "Вт": {
+      numerator: [
+        {
+          time: "08:00-09:30",
+          subject: "История",
+          room: "224",
+          type: "Лекция",
+          teacher: "Смирнов Я.А.",
+        },
+        {
+          time: "09:45-11:15",
+          subject: "Информатика",
+          room: "220",
+          type: "Лекция",
+          teacher: "Лагутина Н.С.",
+        },
+        {
+          time: "11:30-13:00",
+          subject: "Математический анализ",
+          room: "220",
+          type: "Лекция",
+          teacher: "Шабаршина Г.В.",
+        },
+        {
+          time: "13:15-14:45",
+          subject: "Физика",
+          room: "224",
+          type: "Лекция",
+          teacher: "Мелесов Н.С.",
+        },
+        {
+          time: "15:00-16:30",
+          subject: "Физика",
+          room: "224",
+          type: "Лекция",
+          teacher: "Мелесов Н.С.",
+        },
+      ],
+      denominator: [
+        {
+          time: "08:00-09:30",
+          subject: "История",
+          room: "224",
+          type: "Лекция",
+          teacher: "Смирнов Я.А.",
+        },
+        {
+          time: "09:45-11:15",
+          subject: "Информатика",
+          room: "220",
+          type: "Лекция",
+          teacher: "Лагутина Н.С.",
+        },
+        {
+          time: "11:30-13:00",
+          subject: "Математический анализ",
+          room: "220",
+          type: "Лекция",
+          teacher: "Шабаршина Г.В.",
+        },
+        {
+          time: "13:15-14:45",
+          subject: "Физика",
+          room: "224 (ИТ-1)",
+          type: "Лекция",
+          teacher: "Мелесов Н.С.",
+        },
+      ],
+    },
+    "Ср": {
+      numerator: [
+        {
+          time: "08:00-09:30",
+          subject: "Алгебра и геометрия",
+          room: "207",
+          type: "Лекция",
+          teacher: "Седов А.Г.",
+        },
+        {
+          time: "09:45-11:15",
+          subject: "Прикладная физическая культура",
+          room: "",
+          type: "",
+          teacher: "",
+        },
+        {
+          time: "11:30-13:00",
+          subject: "История",
+          room: "215",
+          type: "Лекция",
+          teacher: "Смирнов Я.А.",
+        },
+      ],
+      denominator: [
+        {
+          time: "08:00-09:30",
+          subject: "Алгебра и геометрия",
+          room: "207",
+          type: "Лекция",
+          teacher: "Седов А.Г.",
+        },
+        {
+          time: "09:45-11:15",
+          subject: "Прикладная физическая культура",
+          room: "",
+          type: "",
+          teacher: "",
+        },
+        {
+          time: "11:30-13:00",
+          subject: "История",
+          room: "215",
+          type: "Лекция",
+          teacher: "Смирнов Я.А.",
+        },
+      ],
+    },
+    "Чт": {
+      numerator: [
+        {
+          time: "08:00-09:30",
+          subject: "Английский",
+          room: "306, 416, 305",
+          type: "Практикум",
+          teacher: "Москалева Н.В., Титова Л.А., Мастакова Н.К.",
+        },
+        {
+          time: "09:45-11:15",
+          subject: "Математический анализ",
+          room: "220",
+          type: "Лекция",
+          teacher: "Шабаршина Г.В.",
+        },
+        {
+          time: "11:30-13:00",
+          subject: "Алгебра и геометрия",
+          room: "215",
+          type: "Лекция",
+          teacher: "Седов А.Г.",
+        },
+        {
+          time: "13:15-14:45",
+          subject: "Архитектура вычислительных систем",
+          room: "203",
+          type: "Лекция",
+          teacher: "Сажин С.В.",
+        },
+      ],
+      denominator: [
+        {
+          time: "08:00-09:30",
+          subject: "Английский",
+          room: "306, 416, 305",
+          type: "Практикум",
+          teacher: "Москалева Н.В., Титова Л.А., Мастакова Н.К.",
+        },
+        {
+          time: "09:45-11:15",
+          subject: "Дискретная математика",
+          room: "220",
+          type: "Лекция",
+          teacher: "Смирнов А.В.",
+        },
+        {
+          time: "11:30-13:00",
+          subject: "Алгебра и геометрия",
+          room: "215",
+          type: "Лекция",
+          teacher: "Седов А.Г.",
+        },
+        {
+          time: "13:15-14:45",
+          subject: "Архитектура вычислительных систем",
+          room: "203",
+          type: "Лекция",
+          teacher: "Сажин С.В.",
+        },
+      ],
+    },
+    "Пт": {
+      numerator: [
+        {
+          time: "08:00-09:30",
+          subject: "Прикладная физическая культура",
+          room: "",
+          type: "",
+          teacher: "",
+        },
+        {
+          time: "09:45-11:15",
+          subject: "Математический анализ",
+          room: "304",
+          type: "Лекция",
+          teacher: "Ануфриенко М.В.",
+        },
+        {
+          time: "11:30-13:00",
+          subject: "Дискретная математика",
+          room: "203",
+          type: "Лекция",
+          teacher: "Смирнов А.В.",
+        },
+        {
+          time: "13:15-14:45",
+          subject: "Математический анализ",
+          room: "304",
+          type: "Лекция",
+          teacher: "Ануфриенко М.В.",
+        },
+        {
+          time: "15:00-16:30",
+          subject: "Архитектура вычислительных систем",
+          room: "220",
+          type: "Лекция",
+          teacher: "Сажин С.В.",
+        },
+      ],
+      denominator: [
+        {
+          time: "08:00-09:30",
+          subject: "Прикладная физическая культура",
+          room: "",
+          type: "",
+          teacher: "",
+        },
+        {
+          time: "09:45-11:15",
+          subject: "Математический анализ",
+          room: "304",
+          type: "Лекция",
+          teacher: "Ануфриенко М.В.",
+        },
+        {
+          time: "11:30-13:00",
+          subject: "Дискретная математика",
+          room: "203",
+          type: "Лекция",
+          teacher: "Смирнов А.В.",
+        },
+        {
+          time: "13:15-14:45",
+          subject: "Дискретная математика",
+          room: "203",
+          type: "Лекция",
+          teacher: "Смирнов А.В.",
+        },
+        {
+          time: "15:00-16:30",
+          subject: "Архитектура вычислительных систем",
+          room: "220",
+          type: "Лекция",
+          teacher: "Сажин С.В.",
+        },
+      ],
+    },
+    "Сб": {
+      numerator: [],
+      denominator: [],
+    },
   };
 
   const renderSchedule = (day: Day) => {
@@ -72,6 +332,13 @@ const Schedule = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-4xl mx-auto">
+        <button
+          onClick={() => navigate("/")}
+          className="mb-6 px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-lg shadow-sm hover:bg-gray-50 transition-colors duration-200"
+        >
+          ↚На главную
+        </button>
+        
         <WeekTypeToggle isNumerator={isNumerator} onChange={setIsNumerator} />
         
         {isMobile ? (

@@ -60,7 +60,7 @@ const ScheduleIT12 = () => {
       numerator: [
         {
           time: "09:00-10:35",
-          subject: "История России с XIX века",
+          subject: "История ",
           room: "224",
           type: "Лекция",
           teacher: "Смирнов Я.А.",
@@ -90,7 +90,7 @@ const ScheduleIT12 = () => {
       denominator: [
         {
           time: "09:00-10:35",
-          subject: "История России с XIX века",
+          subject: "История ",
           room: "224",
           type: "Лекция",
           teacher: "Смирнов Я.А.",
@@ -136,7 +136,7 @@ const ScheduleIT12 = () => {
         },
         {
           time: "13:30-13:05",
-          subject: "История России с XIX века",
+          subject: "История ",
           room: "215",
           type: "Лекция",
           teacher: "Смирнов Я.А.",
@@ -152,7 +152,7 @@ const ScheduleIT12 = () => {
         },
         {
           time: "13:30-13:05",
-          subject: "История России с XIX века",
+          subject: "История ",
           room: "215",
           type: "Лекция",
           teacher: "Смирнов Я.А.",
@@ -163,7 +163,7 @@ const ScheduleIT12 = () => {
       numerator: [
         {
           time: "09:00-10:35",
-          subject: "Английский по уровню знаний",
+          subject: "Английский",
           room: "306, 416, 305",
           type: "Практикум",
           teacher: "Москалева Н.В., Титова Л.А., Мастакова Н.К.",
@@ -200,7 +200,7 @@ const ScheduleIT12 = () => {
       denominator: [
         {
           time: "09:00-10:35",
-          subject: "Английский по уровню знаний",
+          subject: "Английский",
           room: "306, 416, 305",
           type: "Практикум",
           teacher: "Москалева Н.В., Титова Л.А., Мастакова Н.К.",
@@ -335,7 +335,7 @@ const ScheduleIT12 = () => {
           onClick={() => navigate("/")}
           className="mb-6 px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-lg shadow-sm hover:bg-gray-50 transition-colors duration-200"
         >
-          ↚На главную
+          ←На главную
         </button>
         
         <WeekTypeToggle isNumerator={isNumerator} onChange={setIsNumerator} />

@@ -62,7 +62,7 @@ const Weeks = () => {
           onClick={() => navigate("/")}
           className="mb-6 px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-lg shadow-sm hover:bg-gray-50 transition-colors duration-200"
         >
-          ↚На главную
+          ←На главную
         </button>
 
         <div className="text-2xl font-medium text-gray-900 mb-8">

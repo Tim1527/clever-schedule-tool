@@ -4,6 +4,7 @@ import { format, isWithinInterval, parse } from "date-fns";
 import { ru } from "date-fns/locale";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
 
 const numeratorWeeks = [
   "С 10-февр. по 16-февр.",
@@ -52,8 +53,18 @@ const isCurrentWeek = (weekStr: string) => {
 
 const Weeks = () => {
   const navigate = useNavigate();
-  const today = new Date();
-  const formattedDate = format(today, "d MMMM", { locale: ru });
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const formattedDate = format(currentTime, "d MMMM", { locale: ru });
+  const formattedTime = format(currentTime, "HH:mm:ss");
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -66,7 +77,7 @@ const Weeks = () => {
         </button>
 
         <div className="text-2xl font-medium text-gray-900 mb-8">
-          {formattedDate}
+          {formattedDate} {formattedTime}
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -77,10 +88,16 @@ const Weeks = () => {
                 <Card 
                   key={index}
                   className={cn(
-                    isCurrentWeek(week) && "bg-blue-50 border-blue-200"
+                    "transition-colors duration-200",
+                    isCurrentWeek(week) 
+                      ? "bg-blue-600 border-blue-700" 
+                      : "bg-white"
                   )}
                 >
-                  <CardContent className="pt-6">
+                  <CardContent className={cn(
+                    "pt-6",
+                    isCurrentWeek(week) ? "text-white" : "text-gray-900"
+                  )}>
                     {week}
                   </CardContent>
                 </Card>
@@ -95,10 +112,16 @@ const Weeks = () => {
                 <Card 
                   key={index}
                   className={cn(
-                    isCurrentWeek(week) && "bg-blue-50 border-blue-200"
+                    "transition-colors duration-200",
+                    isCurrentWeek(week) 
+                      ? "bg-blue-600 border-blue-700" 
+                      : "bg-white"
                   )}
                 >
-                  <CardContent className="pt-6">
+                  <CardContent className={cn(
+                    "pt-6",
+                    isCurrentWeek(week) ? "text-white" : "text-gray-900"
+                  )}>
                     {week}
                   </CardContent>
                 </Card>

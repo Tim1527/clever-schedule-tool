@@ -29,14 +29,43 @@ const denominatorWeeks = [
   "С 1-дек. по 7-дек.",
   "С 15-дек. по 21-дек.",
   "С 29-дек. по 4-янв.",
-  "С 12-янв. 18-янв.",
+  "С 12-янв. по 18-янв.",
 ];
 
 const parseDate = (dateStr: string) => {
-  const year = new Date().getFullYear();
-  const [start, end] = dateStr.replace("С ", "").replace(".", "").split(" по ");
-  const startDate = parse(start + " " + year, "d-MMM yyyy", new Date(), { locale: ru });
-  const endDate = parse(end + " " + year, "d-MMM yyyy", new Date(), { locale: ru });
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth(); // 0-11
+  
+  const [start, end] = dateStr.replace("С ", "").replace(/\./g, "").split(" по ");
+  
+  // Определяем год для каждой даты
+  const getYearForDate = (dateStr: string) => {
+    const monthNames: { [key: string]: number } = {
+      'янв': 0, 'февр': 1, 'мар': 2, 'апр': 3, 'мая': 4, 'июн': 5,
+      'июля': 6, 'авг': 7, 'сент': 8, 'окт': 9, 'нояб': 10, 'дек': 11
+    };
+    
+    const monthStr = dateStr.split('-')[1];
+    const monthIndex = monthNames[monthStr];
+    
+    // Если месяц январь-май и текущий месяц август-декабрь, то это следующий год
+    if (monthIndex <= 4 && currentMonth >= 7) {
+      return currentYear + 1;
+    }
+    // Если месяц сентябрь-декабрь и текущий месяц январь-май, то это предыдущий год  
+    if (monthIndex >= 8 && currentMonth <= 4) {
+      return currentYear - 1;
+    }
+    return currentYear;
+  };
+  
+  const startYear = getYearForDate(start);
+  const endYear = getYearForDate(end);
+  
+  const startDate = parse(start + " " + startYear, "d-MMM yyyy", new Date(), { locale: ru });
+  const endDate = parse(end + " " + endYear, "d-MMM yyyy", new Date(), { locale: ru });
+  
   return { startDate, endDate };
 };
 

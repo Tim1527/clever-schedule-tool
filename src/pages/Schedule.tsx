@@ -35,7 +35,7 @@ const Schedule = () => {
         {
           time: "13:20-14:55",
           subject: "Иностранный язык",
-          room: "205",
+          room: "305",
           type: "-",
           teacher: "Мастакова Н.К.",
         },
@@ -58,7 +58,7 @@ const Schedule = () => {
         {
           time: "13:20-14:55",
           subject: "Иностранный язык",
-          room: "205",
+          room: "305",
           type: "Практика",
           teacher: "Мастакова Н.К.",
         },

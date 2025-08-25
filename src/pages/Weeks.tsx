@@ -30,7 +30,6 @@ const denominatorWeeks = [
   "С 15-дек. по 21-дек.",
   "С 29-дек. по 4-янв.",
   "С 12-янв. 18-янв.",
-  
 ];
 
 const parseDate = (dateStr: string) => {

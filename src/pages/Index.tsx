@@ -24,7 +24,7 @@ const Index = () => {
         </button>
         <button
           onClick={() => navigate("/weeks")}
-          className="w-full px-6 py-3 text-lg font-medium text-white bg-black rounded-lg shadow-sm hover:bg-gray-900 transition-colors duration-200 animate-in fade-in slide-in-from-bottom duration-700 delay-450"
+          className="w-full px-6 py-3 text-lg font-medium text-white bg-black rounded-lg shadow-sm hover:bg-gray-900 transition-colors duration-200 animate-in fade-in slide-in-from-bottom duration-700 delay-500"
         >
           Числители / Знаменатели
         </button>

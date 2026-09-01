@@ -16,7 +16,6 @@ const Schedule = () => {
 
   // Schedule data structure
   const schedule = {
-    const scheduleIT31 = {
   "Пн": {
     numerator: [
       { time: "09:00-10:35", subject: "Теория автоматов", room: "226", type: "-", teacher: "Гладков" },
